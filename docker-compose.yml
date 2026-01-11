@@ -19,17 +19,17 @@ services:
       - todo-network
     restart: unless-stopped
 
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: todo-tunnel
-    command: tunnel --no-autoupdate run
-    environment:
-      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
-    depends_on:
-      - frontend
-    networks:
-      - todo-network
-    restart: unless-stopped
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: todo-tunnel
+  #   command: tunnel --no-autoupdate run
+  #   environment:
+  #     TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
+  #   depends_on:
+  #     - frontend
+  #   networks:
+  #     - todo-network
+  #   restart: unless-stopped
 
 networks:
   todo-network:
